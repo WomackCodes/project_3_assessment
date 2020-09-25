@@ -12,6 +12,6 @@ class WidgetCreate(CreateView):
     model = Widget
     fields = "__all__"
 
-def delete_Widget(request, id):
+def delete_widget(request, id):
     Widget.objects.get(id=id).delete()
     return redirect('/')

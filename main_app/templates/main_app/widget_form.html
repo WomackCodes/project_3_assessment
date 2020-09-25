@@ -7,22 +7,15 @@
     <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css" integrity="sha384-nn4HPE8lTHyVtfCBi5yW9d20FjT8BJwUXyWZT9InLYax14RDjBj46LmSztkmNP9w" crossorigin="anonymous">
     <title>Wacky Widgets</title>
 </head>
-    <body>
-        <h1>Wacky Widgets</h1>
-        <hr>
-        {% if widgets|length == 0 %}
 
-        <p>No widgets added yet...</p>
+<body>
+    <form action="" method="post">
+        {% csrf_token %}
+        <table>
+            {{ form.as_table }}
+        </table>
+        <input type="submit" value="Submit!">
+    </form>
+</body>
 
-        {% else %}
-        {% for widget in widgets %}
-        <ul>
-            <li>{{ widget }} | <a href="{% url 'delete_widget' widget.id %}">Delete</a></li>
-        </ul>
-        {% endfor %}
-
-        {% endif %}
-
-        <a href="{% url 'add_widget' %}">Add A widget</a>
-    </body>
 </html>
